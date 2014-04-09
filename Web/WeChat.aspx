@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WeChat.aspx.cs" Inherits="EcaMobile.WeChat.WeChat" %>

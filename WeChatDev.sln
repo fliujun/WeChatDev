@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{BA87D46B-D8E7-4E84-8226-876C147AB53A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{F6D963F4-B08C-4ABC-BAC2-8C0435D25CA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{75468B1D-F5E0-483C-8715-C5E5FC550B78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA87D46B-D8E7-4E84-8226-876C147AB53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA87D46B-D8E7-4E84-8226-876C147AB53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA87D46B-D8E7-4E84-8226-876C147AB53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA87D46B-D8E7-4E84-8226-876C147AB53A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D963F4-B08C-4ABC-BAC2-8C0435D25CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D963F4-B08C-4ABC-BAC2-8C0435D25CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D963F4-B08C-4ABC-BAC2-8C0435D25CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D963F4-B08C-4ABC-BAC2-8C0435D25CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75468B1D-F5E0-483C-8715-C5E5FC550B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75468B1D-F5E0-483C-8715-C5E5FC550B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75468B1D-F5E0-483C-8715-C5E5FC550B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75468B1D-F5E0-483C-8715-C5E5FC550B78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

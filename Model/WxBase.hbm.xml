@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Model"
+                   namespace="Model">
+  <class name="Model.WxBase" table="WxBase">
+    <id name="ID" type="int" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="LoginName" column="LoginName" type="string" length="255"></property>
+    <property name="LoginPwd" column="LoginPwd" type="string" length="255"></property>
+    <property name="AppId" column="AppId" type="string" length="255"></property>
+    <property name="AppSecret" column="AppSecret" type="string" length="255"></property>
+    <property name="ReplyType" column="ReplyType" type="int"></property>
+    <property name="ReplyID" column="ReplyID" type="int"></property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,161 @@
+﻿@import "../bootstrap/css/bootstrap.min.css";
+@import "../bootstrap/css/bootstrap.theme.min.css";
+
+@themeColor: #4bd3ac;
+@bgColorDeep: #333237;
+@bgColorLight: #f8f8f8;
+@fontColor: #232228;
+@fontGray: #888580;
+
+//通用
+html {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB','\5b8b\4f53',sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: @themeColor;
+    }
+}
+
+i {
+    margin: 0 8px 0 0;
+}
+
+//头部
+header {
+    border-top: 5px solid @themeColor;
+    background: @bgColorDeep;
+    padding: 20px 0;
+
+    .logo {
+        color: @themeColor;
+        font-size: 25px;
+        font-weight: bold;
+
+        label {
+            color: white;
+        }
+    }
+}
+
+//中间内容
+aside, article {
+    padding: 50px 0;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+}
+
+//左边旁
+aside {
+    background: #f8f8f8;
+
+    #divMenu {
+        .row {
+            margin-bottom: 20px;
+        }
+
+        #mTree {
+            font-size: 18px;
+
+            a {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+//右边文章
+article {
+    background: @bgColorLight;
+    position:relative;
+    overflow:auto;
+
+    .tab-pane {
+        /*background:#fff;*/
+        padding: 10px;
+    }
+
+    .wxText {
+        background: #fff;
+        margin-top: 20px;
+        padding: 10px;
+        box-shadow: 1px 1px 5px #808080;
+
+        .txt {
+            font-size: 12px;
+        }
+
+        .time {
+            color: #888580;
+            font-size: 9px;
+            text-align: right;
+        }
+
+        hr {
+            margin: 10px 0;
+        }
+
+        &:hover {
+            background:#eee;
+        }
+    }
+}
+
+//底部
+footer {
+    width: 100%;
+    padding: 20px;
+    background: @bgColorDeep;
+    text-align: center;
+
+    .logo {
+        color: @themeColor;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .title {
+        margin-top: 5px;
+        color: @fontGray;
+        font-size: 14px;
+    }
+}
+
+//正在加载
+#loading {
+    position: fixed;
+    font-size: 22px;
+    color: #0094ff;
+    display: none;
+    left: 49%;
+    top: 45%;
+}
+
+//智能提示
+#alert {
+    width: 350px;
+    height: 100px;
+    line-height: 100px;
+    background: #45cb2f;
+    position: fixed;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    display: none;
+    overflow:hidden;
+
+    &:hover {
+        overflow:auto;
+        box-shadow: 1px 1px 10px @bgColorDeep;
+    }
+}

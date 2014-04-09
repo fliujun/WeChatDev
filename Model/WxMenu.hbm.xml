@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Model"
+                   namespace="Model">
+  <class name="Model.WxMenu" table="WxMenu">
+    <id name="ID" type="int" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="PID" column="PID" type="int"></property>
+    <property name="BtnName" column="BtnName" type="string" length="40"></property>
+    <property name="BtnKey" column="BtnKey" type="string"  length="128"></property>
+    <property name="BtnType" column="BtnType" type="string"  length="256"></property>
+    <property name="ReplyType" column="ReplyType" type="int"></property>
+    <property name="ReplyID" column="ReplyID" type="int"></property>
+    <property name="ReplyUrl" type="string" length="256"></property>
+    <property name="OrderNum" column="OrderNum" type="int"></property>
+    <property name="UpdateTime" type="DateTime"></property>
+  </class>
+</hibernate-mapping>

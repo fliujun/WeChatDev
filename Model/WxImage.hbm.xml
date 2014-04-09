@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Model"
+                   namespace="Model">
+  <class name="Model.WxImage" table="WxImage">
+    <id name="ID" type="int" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="PicUrl" column="PicUrl" type="string" length="500"></property>
+    <property name="UpdateTime" column="UpdateTime" type="DateTime"></property>
+  </class>
+</hibernate-mapping>

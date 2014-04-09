@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Model"
+                   namespace="Model">
+  <class name="Model.WxArticle" table="WxArticle">
+    <id name="ID" type="int" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="PID" column="PID" type="int"></property>
+    <property name="Title" column="Title" type="string" length="255"></property>
+    <property name="Description" column="Description" type="string" length="255"></property>
+    <property name="PicUrl" column="PicUrl" type="string" length="255"></property>
+    <property name="Url" column="Url" type="string" length="255"></property>
+    <property name="Content" column="Content" type="StringClob"></property>
+    <property name="UpdateTime" column="UpdateTime" type="DateTime"></property>
+    <!--<bag name="SubArticles" table="WxArticle" generic="true" inverse="true">
+      <key column="PID" foreign-key="PK_WxArticle"/>
+      <one-to-many class="Model.WxArticle,Model"/>
+    </bag>-->
+  </class>
+</hibernate-mapping>
