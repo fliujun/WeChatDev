@@ -10,6 +10,7 @@
 
     <link href="Content/kindeditor/themes/default/default.css" rel="stylesheet" />
     <link href="Content/kindeditor/plugins/code/prettify.css" rel="stylesheet" />
+    <link href="Content/jquery-ui-bootstrap/css/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 </head>
 <body>
     <!--顶部-->
@@ -59,23 +60,17 @@
             <!--右文章-->
             <article class="col-lg-8">
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#home" data-toggle="tab">文字</a></li>
-                    <li><a href="#profile" data-toggle="tab">图文</a></li>
-                    <li><a href="#messages" data-toggle="tab">方法</a></li>
-                    <li><a href="#settings" data-toggle="tab">设置</a></li>
+                    <li class="active"><a href="#tabText" data-toggle="tab">文字</a></li>
+                    <li><a href="#tabArticle" data-toggle="tab">图文</a></li>
+                    <li><a href="#tabMethod" data-toggle="tab">方法</a></li>
+                    <li><a href="#tabSetting" data-toggle="tab">设置</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="home">
+                    <div class="tab-pane active" id="tabText">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <textarea id="wxText" class="form-control" rows="5" placeholder="微信文本内容，可输入超链接<a>标签，实现微信内链接"></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12" style="text-align:right;margin-top:10px;">
-                                <button class="btn btn-default btn-sm" onclick="updateBtnWxText();"><i class="glyphicon glyphicon-pushpin"></i>取消</button>
-                                <button id="btnWxText" tabindex="-1" data-loading-text="正在提交..." class="btn btn-success btn-sm" onclick="modifyWxText();"><i class="glyphicon glyphicon-plus"></i>添加</button>
+                            <div class="col-lg-12" style="text-align:right;">
+                                <button id="btnTextAdd" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-plus"></i>添加</button>
                             </div>
                         </div>
                         <div class="row">
@@ -87,20 +82,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="profile">
+                    <div class="tab-pane" id="tabArticle">
                         <div class="row">
-                           
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12" style="text-align:right;margin-top:10px;">
-                                <button class="btn btn-default btn-sm" onclick="updateBtnWxText();"><i class="glyphicon glyphicon-pushpin"></i>取消</button>
-                                <button id="btnWxArticle" tabindex="-1" data-loading-text="正在提交..." class="btn btn-success btn-sm" onclick="modifyWxText();"><i class="glyphicon glyphicon-plus"></i>添加</button>
+                            <div class="col-lg-12" style="text-align:right;">
+                                <button id="btnArticleAdd" type="button" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-plus"></i>添加</button>
                             </div>
                         </div>
-
                     </div>
-                    <div class="tab-pane" id="messages">第3...</div>
-                    <div class="tab-pane" id="settings">第4...</div>
+                    <div class="tab-pane" id="tabMethod">第3...</div>
+                    <div class="tab-pane" id="tabSetting">第4...</div>
                 </div>
             </article>
         </div>
@@ -112,6 +102,30 @@
         <div class="title">@2014&nbsp;fliujun.com&nbsp;版本所有&nbsp;违者必究&nbsp;|&nbsp;<span class="glyphicon glyphicon-envelope"></span>&nbsp;me@fliujun.com</div>
     </footer>
 
+    <!--文本编辑-->
+    <form id="formText" style="display:none;" action="MyHandler.ashx" method="post">
+        <input name="method" type="hidden" value="modifyWxText"/>
+        <input name="id" type="hidden" value="-1" />
+        <input name="type" type="hidden" value="add" />
+        <textarea name="text" class="form-control" rows="15" placeholder="微信文本内容，可输入超链接<a>标签，实现微信内链接"></textarea>
+    </form>
+
+    <!--图文编辑-->
+    <form id="formArticle" style="display:none;">
+        <div class="form-group">
+            <label for="inputTitle">标题<b>*</b></label>
+            <input name="inputTitle" type="text" class="form-control" id="inputTitle" placeholder="标题，255个字节内" />
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">描述<b>*</b></label>
+            <textarea name="inputDescription" id="inputDescription" class="form-control" rows="3" placeholder="请输入描述，将出现在图片下方"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputContent">内容<b>*</b></label>
+            <textarea name="inputContent" id="inputContent" class="form-control" rows="20"></textarea>
+        </div>
+    </form>
+
     <!--正在加载-->
     <div id="loading">
         <img src="Content/images/loading.gif" />
@@ -120,57 +134,19 @@
     <!--智能提示-->
     <div id="alert"></div>
 
-    <!--图文编辑-->
-    <form class="hidden">
-        <div class="form-group">
-            <label for="inputTitle">标题<b>*</b></label>
-            <input name="inputTitle" type="text" class="form-control" id="inputTitle" placeholder="标题，255个字节内" />
-        </div>
-        <div class="form-group">
-            <label for="inputDescription">描述<b>*</b></label>
-            <input name="inputDescription" type="text" class="form-control" id="inputDescription" placeholder="描述，255个字节内" />
-        </div>
-        <div class="form-group">
-            <label for="inputContent">内容<b>*</b></label>
-            <textarea name="inputContent" id="inputContent" rows="5"></textarea>
-        </div>
-    </form>
-
     <!--引入脚步-->
     <script src="Content/script/jquery-1.11.0.min.js"></script>
     <script src="Content/bootstrap/js/bootstrap.min.js"></script>
     <script src="Content/jstree/jstree.min.js"></script>
-    <script src="Content/script/index.js"></script>
-
+    <script src="Content/script/jquery.form.js"></script>
     <script src="Content/kindeditor/kindeditor-min.js"></script>
     <script src="Content/kindeditor/lang/zh_CN.js"></script>
     <script src="Content/kindeditor/plugins/code/prettify.js"></script>
+    <script src="Content/jquery-ui-bootstrap/js/jquery-ui-1.9.2.custom.min.js"></script>
 
-    <script>
-        var editor;
-        KindEditor.ready(function (K) {
-            editor = K.create('#inputContent', {
-                cssPath: 'Content/kindeditor/plugins/code/prettify.css',
-                uploadJson: 'upload_json.ashx',
-                fileManagerJson: 'file_manager_json.ashx',
-                allowFileManager: true,
-                afterCreate: function () {
-                    var self = this;
-                    K.ctrl(document, 13, function () {
-                        self.sync();
-                        K('form[name=articleForm]')[0].submit();
-                    });
-                    K.ctrl(self.edit.doc, 13, function () {
-                        self.sync();
-                        K('form[name=articleForm]')[0].submit();
-                    });
-                },
-                //当失去焦点时执行 this.sync();
-                afterBlur: function () { this.sync(); }
-            });
-            prettyPrint();
-        });
-    </script>
+    <script src="Content/script/index.js"></script>
 
+    <script src="Content/script/WxText.js"></script>
+    <script src="Content/script/WxArticle.js"></script>
 </body>
 </html>
